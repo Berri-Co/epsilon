@@ -11,6 +11,7 @@ class Multiplication : public DynamicHierarchy {
   using DynamicHierarchy::DynamicHierarchy;
   friend class Addition;
   friend class Division;
+  friend class Erf;
   friend class Logarithm;
   friend class MyFunc;
   friend class Opposite;
