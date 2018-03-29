@@ -57,6 +57,7 @@ class Expression {
   friend class MatrixInverse;
   friend class MatrixTrace;
   friend class MatrixTranspose;
+  friend class MyFunc;
   friend class NaperianLogarithm;
   friend class NthRoot;
   friend class Opposite;
@@ -121,6 +122,7 @@ public:
     LeastCommonMultiple,
     Logarithm,
     MatrixTrace,
+    MyFunc,
     NaperianLogarithm,
     NthRoot,
     Opposite,

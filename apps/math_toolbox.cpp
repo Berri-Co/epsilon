@@ -8,7 +8,8 @@
  * and the text which would be edited by clicking on the row. When the node is a
  * subtree, the edited text is set at I18n::Message::Default. */
 
-const ToolboxMessageTree calculChildren[4] = {
+const ToolboxMessageTree calculChildren[5] = {
+  ToolboxMessageTree(I18n::Message::MyFuncCommandWithArg, I18n::Message::MyFunc, I18n::Message::MyFuncCommandWithArg),
   ToolboxMessageTree(I18n::Message::DiffCommandWithArg, I18n::Message::DerivateNumber, I18n::Message::DiffCommandWithArg),
   ToolboxMessageTree(I18n::Message::IntCommandWithArg, I18n::Message::Integral, I18n::Message::IntCommandWithArg),
   ToolboxMessageTree(I18n::Message::SumCommandWithArg, I18n::Message::Sum, I18n::Message::SumCommandWithArg),

@@ -47,6 +47,7 @@
 #include <poincare/matrix_trace.h>
 #include <poincare/matrix_transpose.h>
 #include <poincare/multiplication.h>
+#include <poincare/myfunc.h>
 #include <poincare/naperian_logarithm.h>
 #include <poincare/nth_root.h>
 #include <poincare/opposite.h>

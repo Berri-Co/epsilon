@@ -145,6 +145,9 @@ void print_expression(const Expression * e, int indentationLevel) {
     case Expression::Type::Multiplication:
       std::cout << "Multiplication";
       break;
+    case Expression::Type::MyFunc:
+      std::cout << "MyFunc";
+      break;
     case Expression::Type::NaperianLogarithm:
         std::cout << "NaperianLogarithm";
       break;

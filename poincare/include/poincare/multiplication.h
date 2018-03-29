@@ -12,6 +12,7 @@ class Multiplication : public DynamicHierarchy {
   friend class Addition;
   friend class Division;
   friend class Logarithm;
+  friend class MyFunc;
   friend class Opposite;
   friend class Power;
   friend class Subtraction;
