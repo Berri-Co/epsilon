@@ -106,6 +106,7 @@ public:
     Determinant,
     DivisionQuotient,
     DivisionRemainder,
+    Erf,
     Factor,
     Floor,
     FracPart,
