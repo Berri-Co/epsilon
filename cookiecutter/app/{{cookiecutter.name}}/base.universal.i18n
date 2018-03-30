@@ -1,0 +1,2 @@
+{{cookiecutter.camel_name}}App = "{{cookiecutter.human_name}}"
+{{cookiecutter.camel_name}}AppCapital = "{{cookiecutter.upper_human_name}}"

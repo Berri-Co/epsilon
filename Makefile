@@ -68,4 +68,7 @@ clean:
 	@echo "CLEAN"
 	$(Q) rm -f $(products)
 
+newapp:
+	env PYTHONPATH=cookiecutter cookiecutter -o apps cookiecutter/app
+
 -include build/targets.$(PLATFORM).mak
