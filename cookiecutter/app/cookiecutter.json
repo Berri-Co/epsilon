@@ -1,0 +1,9 @@
+{
+	"name": "awesome_app",
+	"human_name": "Awesome App",
+	"upper_human_name": "{{cookiecutter.human_name|upper}}",
+	"upper_name": "{{cookiecutter.name|upper}}",
+	"camel_name": "{{cookiecutter.name|camel}}",
+	"lcamel_name": "{{cookiecutter.camel_name|lowerfirst}}",
+	"_extensions": [".utils.Jinja2Extension"]
+}

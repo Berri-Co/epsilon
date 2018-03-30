@@ -82,4 +82,7 @@ cowsay_%:
 .PHONY: clena
 clena: cowsay_CLENA clean
 
+newapp:
+	env PYTHONPATH=cookiecutter cookiecutter -o apps cookiecutter/app
+
 -include build/targets.$(PLATFORM).mak
