@@ -8,11 +8,12 @@
  * and the text which would be edited by clicking on the row. When the node is a
  * subtree, the edited text is set at I18n::Message::Default. */
 
-const ToolboxMessageTree calculChildren[4] = {
+const ToolboxMessageTree calculChildren[5] = {
   ToolboxMessageTree(I18n::Message::DiffCommandWithArg, I18n::Message::DerivateNumber, I18n::Message::DiffCommandWithArg),
   ToolboxMessageTree(I18n::Message::IntCommandWithArg, I18n::Message::Integral, I18n::Message::IntCommandWithArg),
   ToolboxMessageTree(I18n::Message::SumCommandWithArg, I18n::Message::Sum, I18n::Message::SumCommandWithArg),
-  ToolboxMessageTree(I18n::Message::ProductCommandWithArg, I18n::Message::Product, I18n::Message::ProductCommandWithArg)};
+  ToolboxMessageTree(I18n::Message::ProductCommandWithArg, I18n::Message::Product, I18n::Message::ProductCommandWithArg),
+  ToolboxMessageTree(I18n::Message::ErfCommandWithArg, I18n::Message::Erf, I18n::Message::ErfCommandWithArg)};
 
 const ToolboxMessageTree complexChildren[5] = {
   ToolboxMessageTree(I18n::Message::AbsCommandWithArg,I18n::Message::ComplexAbsoluteValue, I18n::Message::AbsCommandWithArg),
@@ -80,7 +81,7 @@ const ToolboxMessageTree menu[10] = {ToolboxMessageTree(I18n::Message::AbsComman
 #endif
   ToolboxMessageTree(I18n::Message::RootCommandWithArg, I18n::Message::NthRoot, I18n::Message::RootCommandWithArg),
   ToolboxMessageTree(I18n::Message::LogCommandWithArg, I18n::Message::BasedLogarithm, I18n::Message::LogCommandWithArg),
-  ToolboxMessageTree(I18n::Message::Calculation, I18n::Message::Default, I18n::Message::Default, calculChildren, 4),
+  ToolboxMessageTree(I18n::Message::Calculation, I18n::Message::Default, I18n::Message::Default, calculChildren, 5),
   ToolboxMessageTree(I18n::Message::ComplexNumber, I18n::Message::Default, I18n::Message::Default, complexChildren, 5),
   ToolboxMessageTree(I18n::Message::Probability, I18n::Message::Default, I18n::Message::Default, probabilityChildren, 2),
   ToolboxMessageTree(I18n::Message::Arithmetic, I18n::Message::Default, I18n::Message::Default, arithmeticChildren, 5),
