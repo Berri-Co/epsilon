@@ -16,7 +16,7 @@ Nw2048View::~Nw2048View() {
 }
 
 void Nw2048View::drawRect(KDContext * ctx, KDRect rect) const {
-  ctx->fillRect(KDRect(0, 0, bounds().width(), bounds().height()), Palette::GreyWhite);
+  ctx->fillRect(KDRect(0, 0, bounds().width(), bounds().height()), KDColor::RGB24(0xBBADA0));
 }
 
 int Nw2048View::numberOfSubviews() const {
@@ -32,13 +32,28 @@ int Nw2048View::indexAtCoord(dimenType x, dimenType y) const {
 }
 
 void Nw2048View::layoutSubviews() {
-  int size = bounds().height() / m_dimen;
-  int xoffset = (bounds().width() - size * m_dimen) / 2;
+  float paddingWeight = 0.12;
+  KDCoordinate boardSize = bounds().height();
+  KDCoordinate size = boardSize / (m_dimen + (m_dimen + 1) * paddingWeight);
+  KDCoordinate padding = paddingWeight * size;
+
+  if (padding < 3) {
+    padding = 0;
+    size = boardSize / m_dimen;
+  }
+
+  KDCoordinate xoffset = (bounds().width() - boardSize) / 2;
 
   for (dimenType x = 0; x < m_dimen; ++x) {
     for (dimenType y = 0; y < m_dimen; ++y) {
       int index = indexAtCoord(x, y);
-      m_tiles[index]->setFrame(KDRect(xoffset + size * x, size * y, size, size));
+      KDRect frame(
+        (x + 1) * padding + size * x + xoffset,
+        (y + 1) * padding + size * y,
+        size,
+        size
+      );
+      m_tiles[index]->setFrame(frame);
     }
   }
 }

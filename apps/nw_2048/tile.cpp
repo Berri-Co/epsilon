@@ -27,7 +27,7 @@ constexpr const char * tileText[17] = {
 constexpr valueType tileTextN = 17;
 
 constexpr KDColor tileBackground[12] = {
-  KDColor::RGB24(0xBBADA0), // blank
+  KDColor::RGB24(0xCDC1B5), // blank
   KDColor::RGB24(0xEEE4DA), // 2
   KDColor::RGB24(0xEDE0C8), // 4
   KDColor::RGB24(0xF2B179), // 8
@@ -73,6 +73,10 @@ void Tile::setValue(valueType value) {
   } else {
     setTextColor(LightTextColor);
   }
+}
+
+void Tile::drawRect(KDContext * ctx, KDRect rect) const {
+  ::BufferTextView::drawRect(ctx, rect);
 }
 
 }

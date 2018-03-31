@@ -12,6 +12,7 @@ class Tile : public BufferTextView {
 public:
   Tile();
   void setValue(valueType value);
+  void drawRect(KDContext * ctx, KDRect rect) const override;
 private:
   valueType m_value;
 };
