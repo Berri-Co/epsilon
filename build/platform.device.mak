@@ -1,5 +1,6 @@
 TOOLCHAIN ?= arm-gcc
 USE_LIBA = 1
 EXE = elf
+SFLAGS += -DHAS_RESET
 
 python/port/port.o: CXXFLAGS += -DMP_PORT_USE_STACK_SYMBOLS=1

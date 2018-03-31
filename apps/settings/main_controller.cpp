@@ -16,13 +16,16 @@ const SettingsMessageTree complexFormatChildren[2] = {SettingsMessageTree(I18n::
 const SettingsMessageTree examChildren[1] = {SettingsMessageTree(I18n::Message::ActivateExamMode)};
 const SettingsMessageTree aboutChildren[3] = {SettingsMessageTree(I18n::Message::SoftwareVersion), SettingsMessageTree(I18n::Message::SerialNumber), SettingsMessageTree(I18n::Message::FccId)};
 
+// The extra menu replaces the exam menu
+const SettingsMessageTree extraChildren[2] = {SettingsMessageTree(I18n::Message::ResetCalculator), SettingsMessageTree(I18n::Message::ResetContainer)};
+
 #if EPSILON_SOFTWARE_UPDATE_PROMPT
 const SettingsMessageTree menu[8] =
 #else
 const SettingsMessageTree menu[7] =
 #endif
   {SettingsMessageTree(I18n::Message::AngleUnit, angleChildren, 2), SettingsMessageTree(I18n::Message::DisplayMode, FloatDisplayModeChildren, 3), SettingsMessageTree(I18n::Message::ComplexFormat, complexFormatChildren, 2),
-  SettingsMessageTree(I18n::Message::Brightness), SettingsMessageTree(I18n::Message::Language), SettingsMessageTree(I18n::Message::ExamMode, examChildren, 1),
+  SettingsMessageTree(I18n::Message::Brightness), SettingsMessageTree(I18n::Message::Language), SettingsMessageTree(I18n::Message::ExtraSettings, extraChildren, 2),
 #if EPSILON_SOFTWARE_UPDATE_PROMPT
   SettingsMessageTree(I18n::Message::UpdatePopUp),
 #endif

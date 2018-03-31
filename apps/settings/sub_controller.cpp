@@ -95,6 +95,35 @@ bool SubController::handleEvent(Ion::Events::Event event) {
       }
       return false;
     }
+    /* Behaviour of "Extras" menu */
+    if (m_messageTreeModel->label() == I18n::Message::ExtraSettings) {
+      MessageTableCellWithBuffer * myCell = (MessageTableCellWithBuffer *)m_selectableTableView.selectedCell();
+      switch (selectedRow()) {
+        case 0:
+#ifdef HAS_RESET
+          if (strcmp(myCell->accessoryText(), "Really?") == 0) {
+            Ion::reset();
+          } else {
+            myCell->setAccessoryText("Really?");
+            return true;
+          }
+#else
+          myCell->setAccessoryText("Unavailable");
+          return true;
+#endif
+        case 1:
+          if (strcmp(myCell->accessoryText(), "Really?") == 0) {
+            AppsContainer * container = (AppsContainer *)app()->container();
+            container->reset();
+            myCell->setAccessoryText("Done");
+          } else {
+            myCell->setAccessoryText("Really?");
+          }
+          return true;
+      }
+      return false;
+    }
+
     /* Generic behaviour of preference menu*/
     assert(m_messageTreeModel->label() != I18n::Message::DisplayMode || selectedRow() != numberOfRows()-1); // In that case, events OK and EXE are handled by the cell
     setPreferenceWithValueIndex(m_messageTreeModel->label(), selectedRow());
