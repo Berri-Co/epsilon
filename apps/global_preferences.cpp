@@ -4,7 +4,7 @@ GlobalPreferences::GlobalPreferences() :
   m_language(I18n::Language::EN),
   m_examMode(ExamMode::Desactivate),
   m_showUpdatePopUp(true),
-  m_brightnessLevel(Ion::Backlight::MaxBrightness)
+  m_brightnessLevel(144)
 {
 }
 
