@@ -2,13 +2,13 @@
 
 ShiftAlphaLockView::ShiftAlphaLockView() :
   View(),
-  m_shiftAlphaView(KDText::FontSize::Small, I18n::Message::Default, 1.0f, 0.5f, KDColorWhite, Palette::YellowDark),
+  m_shiftAlphaView(KDText::FontSize::Small, I18n::Message::Default, 1.0f, 0.5f, KDColorWhite, Palette::Accent),
   m_status(Ion::Events::ShiftAlphaStatus::Default)
 {
 }
 
 void ShiftAlphaLockView::drawRect(KDContext * ctx, KDRect rect) const {
-  ctx->fillRect(bounds(), Palette::YellowDark);
+  ctx->fillRect(bounds(), Palette::Accent);
 }
 
 bool ShiftAlphaLockView::setStatus(Ion::Events::ShiftAlphaStatus status) {

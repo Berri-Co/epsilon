@@ -10,8 +10,8 @@ using namespace Poincare;
 
 TitleBarView::TitleBarView() :
   View(),
-  m_titleView(KDText::FontSize::Small, I18n::Message::Default, 0.5f, 0.5f, KDColorWhite, Palette::YellowDark),
-  m_preferenceView(KDText::FontSize::Small, 1.0f, 0.5, KDColorWhite, Palette::YellowDark)
+  m_titleView(KDText::FontSize::Small, I18n::Message::Default, 0.5f, 0.5f, KDColorWhite, Palette::Accent),
+  m_preferenceView(KDText::FontSize::Small, 1.0f, 0.5, KDColorWhite, Palette::Accent)
 {
   m_examModeIconView.setImage(ImageStore::ExamIcon);
 }
@@ -19,7 +19,7 @@ TitleBarView::TitleBarView() :
 void TitleBarView::drawRect(KDContext * ctx, KDRect rect) const {
   /* As we cheated to layout the title view, we have to fill a very thin
    * rectangle at the top with the background color. */
-  ctx->fillRect(KDRect(0, 0, bounds().width(), 2), Palette::YellowDark);
+  ctx->fillRect(KDRect(0, 0, bounds().width(), 2), Palette::Accent);
 }
 
 void TitleBarView::setTitle(I18n::Message title) {

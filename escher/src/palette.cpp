@@ -22,3 +22,5 @@ constexpr KDColor Palette::Pink;
 constexpr KDColor Palette::Blue;
 constexpr KDColor Palette::Orange;
 constexpr KDColor Palette::Green;
+
+constexpr KDColor Palette::Accent;

@@ -27,6 +27,8 @@ public:
   constexpr static KDColor Blue = KDColor::RGB24(0x5075f2);
   constexpr static KDColor Orange = KDColor::RGB24(0xfe871f);
   constexpr static KDColor Green = KDColor::RGB24(0x76d435);
+
+  constexpr static KDColor Accent = KDColor::RGB24(0x5075f2);
 };
 
 #endif

@@ -49,10 +49,10 @@ void GaugeView::drawRect(KDContext * ctx, KDRect rect) const {
   KDCoordinate width = bounds().width()-k_indicatorDiameter;
   KDCoordinate height =  bounds().height();
 
-  ctx->fillRect(KDRect(k_indicatorDiameter/2, (height-k_thickness)/2, width*m_level, k_thickness), Palette::YellowDark);
+  ctx->fillRect(KDRect(k_indicatorDiameter/2, (height-k_thickness)/2, width*m_level, k_thickness), Palette::Accent);
   ctx->fillRect(KDRect(k_indicatorDiameter/2+width*m_level, (height-k_thickness)/2, width*(1.0f-m_level), k_thickness), Palette::GreyDark);
   KDRect frame(width*m_level, (height-k_indicatorDiameter)/2, k_indicatorDiameter, k_indicatorDiameter);
-  ctx->blendRectWithMask(frame, Palette::YellowDark, (const uint8_t *)gaugeIndicatorMask, s_gaugeIndicatorWorkingBuffer);
+  ctx->blendRectWithMask(frame, Palette::Accent, (const uint8_t *)gaugeIndicatorMask, s_gaugeIndicatorWorkingBuffer);
 }
 
 KDSize GaugeView::minimalSizeForOptimalDisplay() const {
