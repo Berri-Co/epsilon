@@ -35,7 +35,8 @@ App::Descriptor * App::Snapshot::descriptor() {
 }
 
 App::App(Container * container, Snapshot * snapshot) :
-  ::App(container, snapshot, &m_{{cookiecutter.lcamel_name}}Controller)
+  ::App(container, snapshot, &m_{{cookiecutter.lcamel_name}}Controller),
+  m_{{cookiecutter.lcamel_name}}Controller(this)
 {
 }
 

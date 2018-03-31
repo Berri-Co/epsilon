@@ -2,8 +2,8 @@
 
 namespace {{cookiecutter.camel_name}} {
 
-{{cookiecutter.camel_name}}Controller::{{cookiecutter.camel_name}}Controller() :
-  ViewController(nullptr),
+{{cookiecutter.camel_name}}Controller::{{cookiecutter.camel_name}}Controller(Responder * parentResponder) :
+  ViewController(parentResponder),
   m_{{cookiecutter.lcamel_name}}View()
 {
 }

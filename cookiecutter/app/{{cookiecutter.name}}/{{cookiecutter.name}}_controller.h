@@ -8,7 +8,7 @@ namespace {{cookiecutter.camel_name}} {
 
 class {{cookiecutter.camel_name}}Controller : public ViewController {
 public:
-  {{cookiecutter.camel_name}}Controller();
+  {{cookiecutter.camel_name}}Controller(Responder * parentResponder);
   View * view() override;
 private:
   {{cookiecutter.camel_name}}View m_{{cookiecutter.lcamel_name}}View;
