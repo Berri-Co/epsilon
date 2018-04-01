@@ -5,8 +5,8 @@ app_objs += $(addprefix apps/nw_2048/,\
   app.o\
   game.o\
   tile.o\
-  nw_2048_controller.o\
-  nw_2048_view.o\
+  controller.o\
+  game_view.o\
 )
 
 i18n_files += $(addprefix apps/nw_2048/,\

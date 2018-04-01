@@ -41,8 +41,8 @@ Game & App::Snapshot::game() {
 }
 
 App::App(Container * container, Snapshot * snapshot) :
-  ::App(container, snapshot, &m_nw2048Controller),
-  m_nw2048Controller(this, snapshot->game())
+  ::App(container, snapshot, &m_controller),
+  m_controller(this, snapshot->game())
 {
 }
 

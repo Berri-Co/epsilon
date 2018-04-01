@@ -3,19 +3,19 @@
 
 #include <escher.h>
 #include "game.h"
-#include "nw_2048_view.h"
+#include "game_view.h"
 
 namespace Nw2048 {
 
-class Nw2048Controller : public ViewController {
+class Controller : public ViewController {
 public:
-  Nw2048Controller(Responder * parentResponder, Game & game);
+  Controller(Responder * parentResponder, Game & game);
   View * view() override;
   bool handleEvent(Ion::Events::Event event) override;
 private:
   void setDimen(dimenType n);
   Game & m_game;
-  Nw2048View m_nw2048View;
+  GameView m_gameView;
 };
 
 }

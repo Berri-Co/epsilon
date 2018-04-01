@@ -1,37 +1,37 @@
-#include "nw_2048_view.h"
+#include "game_view.h"
 #include "app.h"
 #include "tile.h"
 
 namespace Nw2048 {
 
-Nw2048View::Nw2048View(dimenType dimen) :
+GameView::GameView(dimenType dimen) :
   View(),
   m_dimen(dimen)
 {
   setUpBoard();
 }
 
-Nw2048View::~Nw2048View() {
+GameView::~GameView() {
   tearDownBoard();
 }
 
-void Nw2048View::drawRect(KDContext * ctx, KDRect rect) const {
+void GameView::drawRect(KDContext * ctx, KDRect rect) const {
   ctx->fillRect(KDRect(0, 0, bounds().width(), bounds().height()), KDColor::RGB24(0xBBADA0));
 }
 
-int Nw2048View::numberOfSubviews() const {
+int GameView::numberOfSubviews() const {
   return m_dimen * m_dimen;
 }
 
-View * Nw2048View::subviewAtIndex(int index) {
+View * GameView::subviewAtIndex(int index) {
   return m_tiles[index];
 }
 
-int Nw2048View::indexAtCoord(dimenType x, dimenType y) const {
+int GameView::indexAtCoord(dimenType x, dimenType y) const {
   return y * m_dimen + x;
 }
 
-void Nw2048View::layoutSubviews() {
+void GameView::layoutSubviews() {
   float paddingWeight = 0.12;
   KDCoordinate boardSize = bounds().height();
   KDCoordinate size = boardSize / (m_dimen + (m_dimen + 1) * paddingWeight);
@@ -58,21 +58,21 @@ void Nw2048View::layoutSubviews() {
   }
 }
 
-void Nw2048View::setUpBoard() {
+void GameView::setUpBoard() {
   m_tiles = new Tile*[m_dimen * m_dimen];
   for (dimenType i = 0; i < m_dimen * m_dimen; ++i) {
     m_tiles[i] = new Tile();
   }
 }
 
-void Nw2048View::tearDownBoard() {
+void GameView::tearDownBoard() {
   for (dimenType i = 0; i < m_dimen * m_dimen; ++i) {
     delete m_tiles[i];
   }
   delete[] m_tiles;
 }
 
-void Nw2048View::redrawGame(Game & game) {
+void GameView::redrawGame(Game & game) {
   if (game.dimen() != m_dimen) {
     tearDownBoard();
     m_dimen = game.dimen();

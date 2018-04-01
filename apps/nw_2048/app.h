@@ -3,7 +3,7 @@
 
 #include <escher.h>
 #include "game.h"
-#include "nw_2048_controller.h"
+#include "controller.h"
 
 namespace Nw2048 {
 
@@ -27,7 +27,7 @@ public:
   };
 private:
   App(Container * container, Snapshot * snapshot);
-  Nw2048Controller m_nw2048Controller;
+  Controller m_controller;
 };
 
 }

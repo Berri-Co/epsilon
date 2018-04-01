@@ -1,23 +1,23 @@
-#include "nw_2048_controller.h"
+#include "controller.h"
 
 namespace Nw2048 {
 
-Nw2048Controller::Nw2048Controller(Responder * parentResponder, Game & game) :
+Controller::Controller(Responder * parentResponder, Game & game) :
   ViewController(parentResponder),
   m_game(game),
-  m_nw2048View(game.dimen())
+  m_gameView(game.dimen())
 {
   if (!m_game.isInitialized()) {
     m_game.resetGame();
   }
-  m_nw2048View.redrawGame(m_game);
+  m_gameView.redrawGame(m_game);
 }
 
-View * Nw2048Controller::view() {
-  return &m_nw2048View;
+View * Controller::view() {
+  return &m_gameView;
 }
 
-bool Nw2048Controller::handleEvent(Ion::Events::Event event) {
+bool Controller::handleEvent(Ion::Events::Event event) {
   if (event == Ion::Events::Up || event == Ion::Events::Eight) {
     m_game.move(false, -1);
   } else if (event == Ion::Events::Down || event == Ion::Events::Two) {
@@ -35,12 +35,12 @@ bool Nw2048Controller::handleEvent(Ion::Events::Event event) {
   } else {
     return false;
   }
-  m_nw2048View.redrawGame(m_game);
+  m_gameView.redrawGame(m_game);
 
   return true;
 }
 
-void Nw2048Controller::setDimen(dimenType n) {
+void Controller::setDimen(dimenType n) {
   if (m_game.occupied() > 2) {
     return;
   }
@@ -51,7 +51,7 @@ void Nw2048Controller::setDimen(dimenType n) {
 
   m_game.setDimen(n);
   m_game.resetGame();
-  m_nw2048View.redrawGame(m_game);
+  m_gameView.redrawGame(m_game);
 }
 
 }
