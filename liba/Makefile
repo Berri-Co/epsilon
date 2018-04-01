@@ -165,6 +165,7 @@ objs += $(addprefix liba/src/external/softfloat/src/, \
   f64_sub.o \
   f64_to_i32_r_minMag.o \
   f64_to_i64_r_minMag.o \
+  f64_to_ui32_r_minMag.o \
   f64_to_f32.o \
   i32_to_f64.o \
   i64_to_f32.o \

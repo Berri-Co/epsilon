@@ -50,6 +50,10 @@ int __aeabi_dcmpun(aeabi_double_t a, aeabi_double_t b) {
   return !f64_eq(f64(a), f64(a)) || !f64_eq(f64(b), f64(b));
 }
 
+uint32_t __aeabi_d2uiz(aeabi_double_t d) {
+  return f64_to_ui32_r_minMag(f64(d), 0);
+}
+
 // Arithmetics
 
 aeabi_double_t __aeabi_dadd(aeabi_double_t a, aeabi_double_t b) {
