@@ -1,4 +1,4 @@
-SFLAGS += -Iliba/include
+SFLAGS += -Iliba/include -Iliba/src/external/printf
 
 liba/src/external/sqlite/mem5.o: CFLAGS += -w
 
@@ -23,7 +23,12 @@ objs += $(addprefix liba/src/, \
   strchr.o \
   strlcpy.o \
   strlen.o \
+  vsprintf.o \
   external/sqlite/mem5.o \
+)
+
+objs += $(addprefix liba/src/external/printf/, \
+  printf.o \
 )
 
 objs += $(addprefix liba/src/external/openbsd/, \
