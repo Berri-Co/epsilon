@@ -84,6 +84,7 @@ objs += $(addprefix liba/src/external/openbsd/, \
   s_trunc.o \
   s_truncf.o \
   w_lgammaf.o \
+  strncmp.o \
 )
 
 objs += $(addprefix liba/src/external/openbsd/, \
