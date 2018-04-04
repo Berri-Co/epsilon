@@ -1,0 +1,6 @@
+LedApp = "LED"
+LedAppCapital = "LED"
+LedStatus = "LED"
+Red = "Red"
+Green = "Green"
+Blue = "Blue"
