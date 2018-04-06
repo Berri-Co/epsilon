@@ -1,0 +1,3 @@
+BrainfuckApp = "Brainfuck"
+BrainfuckAppCapital = "BRAINFUCK"
+BrainfuckInput = "Input:"
