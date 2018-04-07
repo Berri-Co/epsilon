@@ -6,7 +6,7 @@ namespace Poincare {
 static Preferences s_preferences;
 
 Preferences::Preferences() :
-  m_angleUnit(Expression::AngleUnit::Degree),
+  m_angleUnit(Expression::AngleUnit::Radian),
   m_displayMode(PrintFloat::Mode::Decimal),
   m_complexFormat(Expression::ComplexFormat::Cartesian),
   m_numberOfSignificantDigits(PrintFloat::k_numberOfPrintedSignificantDigits)
