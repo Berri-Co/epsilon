@@ -32,6 +32,7 @@ public:
     REGS_BOOL_FIELD(UE, 13);
     REGS_BOOL_FIELD(TE, 3);
     REGS_BOOL_FIELD(RE, 2);
+    REGS_BOOL_FIELD(RXNEIE, 5);
   };
 
   constexpr USART(int i) : m_index(i) {}
