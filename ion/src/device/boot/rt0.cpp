@@ -29,7 +29,7 @@ void abort() {
 #endif
 }
 
-RingBuffer<char, 1024> usart6_buffer;
+volatile RingBuffer<char, 1024> usart6_buffer;
 void ISR_USART6() {
   char c = (char)USART(6).DR()->get();
   usart6_buffer.push(c);
