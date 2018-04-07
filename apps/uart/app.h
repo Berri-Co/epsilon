@@ -24,6 +24,8 @@ public:
   private:
     bool m_usart6;
   };
+  int numberOfTimers() override;
+  Timer * timerAtIndex(int i) override;
 private:
   App(Container * container, Snapshot * snapshot);
   MainController m_mainController;

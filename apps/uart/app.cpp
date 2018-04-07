@@ -45,4 +45,13 @@ App::App(Container * container, Snapshot * snapshot) :
 {
 }
 
+int App::numberOfTimers() {
+  return 1;
+}
+
+Timer * App::timerAtIndex(int i) {
+  assert(i == 0);
+  return m_mainController.getRxTimer();
+}
+
 }

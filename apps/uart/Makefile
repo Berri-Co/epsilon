@@ -4,6 +4,7 @@ snapshot_headers += apps/uart/app.h
 app_objs += $(addprefix apps/uart/,\
   app.o\
   main_controller.o\
+  monitor_controller.o\
 )
 
 i18n_files += $(addprefix apps/uart/,\
