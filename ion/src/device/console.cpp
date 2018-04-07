@@ -3,7 +3,7 @@
 #include "console.h"
 #include "ring_buffer.h"
 
-extern volatile RingBuffer<char, 1024> usart6_buffer;
+extern volatile RingBuffer<char, 1024> usart6_rx_buffer;
 
 /* This file implements a serial console.
  * We use a 115200 8N1 serial port */
@@ -17,11 +17,11 @@ static USART getPreferredPort() {
 
 char readChar() {
   USART port = getPreferredPort();
-  if (port == USART(6) && !usart6_buffer.empty()) {
-    // Use usart6_buffer
-    while (usart6_buffer.empty()) {
+  if (port == USART(6) && !usart6_rx_buffer.empty()) {
+    // Use USART6 RX buffer
+    while (usart6_rx_buffer.empty()) {
     }
-    return usart6_buffer.shift();
+    return usart6_rx_buffer.shift();
   }
   while (port.SR()->getRXNE() == 0) {
   }
@@ -39,8 +39,8 @@ bool readCharNonblocking(char * dest) {
   USART port = getPreferredPort();
   if (port == USART(6)) {
     // Use usart6_buffer
-    if (!usart6_buffer.empty()) {
-      *dest = usart6_buffer.shift();
+    if (!usart6_rx_buffer.empty()) {
+      *dest = usart6_rx_buffer.shift();
       return true;
     }
     return false;

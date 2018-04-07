@@ -29,10 +29,13 @@ void abort() {
 #endif
 }
 
-volatile RingBuffer<char, 1024> usart6_buffer;
+volatile RingBuffer<char, 1024> usart6_rx_buffer;
 void ISR_USART6() {
-  char c = (char)USART(6).DR()->get();
-  usart6_buffer.push(c);
+  if (USART(6).SR()->getRXNE()) {
+    // Handle RXNE
+    char c = (char)USART(6).DR()->get();
+    usart6_rx_buffer.push(c);
+  }
 }
 
 void start() {
