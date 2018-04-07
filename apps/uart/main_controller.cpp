@@ -13,7 +13,8 @@ MainController::MainController(Responder * parentResponder, bool & usart6) :
   m_selectableTableView(this, this, 0, 1,
     Metric::CommonTopMargin, Metric::CommonRightMargin, Metric::CommonBottomMargin, Metric::CommonLeftMargin,
     this
-   ),
+  ),
+  m_monitorController(this),
   m_usart6(usart6)
 {
 #if HAS_UART
@@ -40,6 +41,12 @@ bool MainController::handleEvent(Ion::Events::Event event) {
     return true;
   }
 #endif
+  if (selectedRow() == 4) {
+    if (event == Ion::Events::EXE || event == Ion::Events::OK) {
+      app()->displayModalViewController(&m_monitorController, 0.f, 0.f);
+      return true;
+    }
+  }
   return false;
 }
 
@@ -51,8 +58,8 @@ void MainController::didBecomeFirstResponder() {
 }
 
 int MainController::numberOfRows() {
-  // USART6 Switch/Message, USART3EN Status, USART6EN Status, Pinout
-  return 4;
+  // USART6 Switch/Message, USART3EN Status, USART6EN Status, Pinout, Monitor Chevron
+  return 5;
 }
 
 KDCoordinate MainController::rowHeight(int j) {
@@ -71,9 +78,15 @@ HighlightCell * MainController::reusableCell(int index, int type) {
   if (type == 0) {
     assert(index == 0);
     return &m_cellWithSwitch;
-  } else {
+  } else if (type == 1) {
     assert(index < k_numberOfCellsWithBuffer);
     return &m_cellsWithBuffer[index];
+  } else if (type == 2) {
+    assert(index == 0);
+    return &m_cellWithChevron;
+  } else {
+    assert(false);
+    return nullptr;
   }
 }
 
@@ -82,6 +95,8 @@ int MainController::reusableCellCount(int type) {
     return 1;
   } else if (type == 1) {
     return k_numberOfCellsWithBuffer;
+  } else if (type == 2) {
+    return 1;
   } else {
     assert(false);
     return 0;
@@ -89,13 +104,14 @@ int MainController::reusableCellCount(int type) {
 }
 
 int MainController::typeAtLocation(int i, int j) {
-  // 0 - Switch, 1 - Buffer
+  // 0 - Switch, 1 - Buffer, 2 - Chevron
   assert(i == 0);
-  assert(j < 4);
+  assert(j < 5);
 #if HAS_UART
   if (j == 0) return 0;
 #endif
-  return 1;
+  if (j <= 3) return 1;
+  return 2;
 }
 
 void MainController::willDisplayCellForIndex(HighlightCell * cell, int index) {
@@ -137,6 +153,10 @@ void MainController::willDisplayCellForIndex(HighlightCell * cell, int index) {
 #else
     cellWithBuffer->setMessage(I18n::Message::UartUnavailable);
 #endif
+  } else if (index == 4) {
+    // Monitor entry
+    MessageTableCellWithChevron * cellWithChevron = static_cast<MessageTableCellWithChevron *>(cell);
+    cellWithChevron->setMessage(I18n::Message::UartMonitor);
   } else {
     assert(false);
   }
@@ -144,6 +164,10 @@ void MainController::willDisplayCellForIndex(HighlightCell * cell, int index) {
 
 View * MainController::view() {
   return &m_selectableTableView;
+}
+
+Timer * MainController::getRxTimer() {
+  return &m_monitorController;
 }
 
 }
