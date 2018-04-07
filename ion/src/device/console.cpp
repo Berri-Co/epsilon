@@ -3,7 +3,7 @@
 #include "console.h"
 #include "ring_buffer.h"
 
-extern RingBuffer<char, 1024> usart6_buffer;
+extern volatile RingBuffer<char, 1024> usart6_buffer;
 
 /* This file implements a serial console.
  * We use a 115200 8N1 serial port */
